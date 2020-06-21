@@ -1,22 +1,25 @@
-export default class Stack<T> implements Iterable<T> {
-  private array: T[] = [];
-  push(...items: T[]) {
-    this.array.push(...items);
-  }
-  pop(): T | undefined {
-    return this.array.pop();
-  }
-  size(): number {
-    return this.array.length;
-  }
+export abstract class AbstractStack<T> implements Iterable<T> {
+  protected data: T[] = [];
   [Symbol.iterator](): Iterator<T> {
-    let index = this.array.length - 1;
+    let index = this.data.length - 1;
     return {
       next: (): IteratorResult<T> => {
         return index >= 0
-          ? { done: false, value: this.array[index--] }
+          ? { done: false, value: this.data[index--] }
           : { done: true, value: undefined };
       },
     };
+  }
+  size(): number {
+    return this.data.length;
+  }
+}
+
+export default class Stack<T> extends AbstractStack<T> {
+  push(...items: T[]) {
+    this.data.push(...items);
+  }
+  pop(): T | undefined {
+    return this.data.pop();
   }
 }
