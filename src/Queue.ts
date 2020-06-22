@@ -15,6 +15,12 @@ export default class Queue<T> implements Iterable<T> {
       this.data[this.N++] = item;
     }
   }
+  peek(): T | undefined {
+    return this.current < this.N ? this.data[this.current] : undefined;
+  }
+  get size(): number {
+    return this.N - this.current;
+  }
   [Symbol.iterator](): Iterator<T> {
     let i = this.current;
     let end = this.N;
@@ -25,8 +31,5 @@ export default class Queue<T> implements Iterable<T> {
           : { done: true, value: undefined };
       },
     };
-  }
-  size(): number {
-    return this.N - this.current;
   }
 }

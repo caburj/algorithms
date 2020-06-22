@@ -10,8 +10,11 @@ export abstract class AbstractStack<T> implements Iterable<T> {
       },
     };
   }
-  size(): number {
+  get size(): number {
     return this.data.length;
+  }
+  peek(): T | undefined {
+    return this.data.length ? this.data[this.data.length - 1] : undefined;
   }
 }
 
