@@ -1,9 +1,11 @@
 import { Comparator } from "./types.d.ts";
 import { swap } from "./utils.ts";
+import shuffle from "./Shuffle.ts";
 
 export default function <T>(items: T[], comparator: Comparator<T>) {
+  shuffle(items);
   quicksort<T>(items, comparator, 0, items.length - 1);
-};
+}
 
 function quicksort<T>(
   items: T[],
