@@ -1,4 +1,4 @@
-import UF from "../src/UF.ts";
+import UF from "../src/basics/UF.ts";
 import { assertEquals, assert } from "https://deno.land/std/testing/asserts.ts";
 
 function testFile(filename: string, nComponents: number) {

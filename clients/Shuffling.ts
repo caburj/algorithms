@@ -1,4 +1,4 @@
-import { shuffle } from "../src/Sort.ts";
+import { shuffle } from "../src/basics/Sort.ts";
 
 if (import.meta.main) {
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];

@@ -1,4 +1,4 @@
-import Stack from "../src/Stack.ts";
+import Stack from "../src/basics/Stack.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 Deno.test("check order", () => {

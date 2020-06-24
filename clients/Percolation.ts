@@ -1,4 +1,4 @@
-import UF from "../src/UF.ts";
+import UF from "../src/basics/UF.ts";
 import { randomInt } from "https://deno.land/x/random_int/mod.ts";
 
 /**

@@ -1,5 +1,5 @@
-import { Comparator } from "./types.d.ts";
-import { swap } from "./utils.ts";
+import { Comparator } from "../types.d.ts";
+import { swap } from "../utils.ts";
 import { randomInt } from "https://deno.land/x/random_int/mod.ts";
 
 export function quicksort<T>(items: T[], comparator: Comparator<T>) {

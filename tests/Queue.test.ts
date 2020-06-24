@@ -1,4 +1,4 @@
-import Queue from "../src/Queue.ts";
+import Queue from "../src/basics/Queue.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 Deno.test("check order", () => {

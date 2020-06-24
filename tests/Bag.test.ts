@@ -1,4 +1,4 @@
-import Bag from "../src/Bag.ts";
+import Bag from "../src/basics/Bag.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 Deno.test("check iterator", () => {

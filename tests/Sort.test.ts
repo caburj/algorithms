@@ -1,4 +1,4 @@
-import { quicksort, mergesort } from "../src/Sort.ts";
+import { quicksort, mergesort } from "../src/basics/Sort.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 const sortClasses = [mergesort, quicksort];
