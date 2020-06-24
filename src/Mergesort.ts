@@ -1,7 +1,9 @@
+import { Comparator } from "./types.d.ts";
+
 function merge<T>(
   items: T[],
   aux: T[],
-  comparator: (a: T, b: T) => boolean,
+  comparator: Comparator<T>,
   firstLeft: number,
   firstRight: number,
   last: number,
@@ -28,7 +30,7 @@ function merge<T>(
 function sort<T>(
   items: T[],
   aux: T[],
-  comparator: (a: T, b: T) => boolean,
+  comparator: Comparator<T>,
   first: number,
   last: number,
 ) {
@@ -41,7 +43,7 @@ function sort<T>(
 
 export default function <T>(
   items: T[],
-  comparator: (a: T, b: T) => boolean,
+  comparator: Comparator<T>,
 ) {
   sort<T>(items, [...items], comparator, 0, items.length - 1);
 }
