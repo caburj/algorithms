@@ -1,5 +1,4 @@
-import mergesort from "../src/Mergesort.ts";
-import quicksort from "../src/Quicksort.ts";
+import { quicksort, mergesort } from "../src/Sort.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 const sortClasses = [mergesort, quicksort];
@@ -71,5 +70,5 @@ Deno.test("mergesort stability", () => {
 Deno.test("quicksort example", () => {
   const letters = [..."QUICKSORTEXAMPLE"];
   quicksort(letters, comparator);
-  assertEquals(letters, [..."ACEEIKLMOPQRSTUX"])
-})
+  assertEquals(letters, [..."ACEEIKLMOPQRSTUX"]);
+});
