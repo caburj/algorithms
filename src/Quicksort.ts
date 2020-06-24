@@ -1,4 +1,5 @@
 import { Comparator } from "./types.d.ts";
+import { swap } from "./utils.ts";
 
 export default function <T>(items: T[], comparator: Comparator<T>) {
   quicksort<T>(items, comparator, 0, items.length - 1);
@@ -36,8 +37,4 @@ function partition<T>(
   }
   swap(items, lo, j);
   return j;
-}
-
-function swap<T>(items: T[], i: number, j: number) {
-  [items[i], items[j]] = [items[j], items[i]];
 }
