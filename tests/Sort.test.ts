@@ -1,8 +1,8 @@
 import { quicksort, mergesort } from "../src/basics/Sort.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { comparator } from "../src/utils.ts";
 
 const sortClasses = [mergesort, quicksort];
-const comparator = <T extends number | string>(a: T, b: T) => a < b;
 
 Deno.test("0 items", () => {
   const items: number[] = [];

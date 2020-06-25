@@ -2,32 +2,37 @@ import { Comparator } from "../types.d.ts";
 import { swap } from "../utils.ts";
 import { randomInt } from "https://deno.land/x/random_int/mod.ts";
 
+export function partition<T>(
+  items: T[],
+  comparator: Comparator<T>,
+  lo: number,
+  hi: number,
+): number {
+  const pivot = items[lo];
+  let [i, j] = [lo, hi + 1];
+  while (true) {
+    while (comparator(items[++i], pivot)) {
+      if (i == hi) break;
+    }
+    while (comparator(pivot, items[--j])) {
+      if (j == lo) break;
+    }
+    if (i >= j) break;
+    swap(items, i, j);
+  }
+  swap(items, lo, j);
+  return j;
+}
+
 export function quicksort<T>(items: T[], comparator: Comparator<T>) {
   shuffle(items);
   sort(items, 0, items.length - 1);
 
   function sort(items: T[], lo: number, hi: number) {
     if (hi <= lo) return;
-    const j = partition(items, lo, hi);
+    const j = partition(items, comparator, lo, hi);
     sort(items, lo, j - 1);
     sort(items, j + 1, hi);
-  }
-
-  function partition(items: T[], lo: number, hi: number): number {
-    const pivot = items[lo];
-    let [i, j] = [lo, hi + 1];
-    while (true) {
-      while (comparator(items[++i], pivot)) {
-        if (i == hi) break;
-      }
-      while (comparator(pivot, items[--j])) {
-        if (j == lo) break;
-      }
-      if (i >= j) break;
-      swap(items, i, j);
-    }
-    swap(items, lo, j);
-    return j;
   }
 }
 
