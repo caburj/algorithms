@@ -1,5 +1,5 @@
 import { Comparator } from "../types.d.ts";
-import { swap } from "../utils.ts";
+import { swap, defaultComparator } from "../utils.ts";
 import { randomInt } from "https://deno.land/x/random_int/mod.ts";
 
 export function partition<T>(
@@ -24,7 +24,10 @@ export function partition<T>(
   return j;
 }
 
-export function quicksort<T>(items: T[], comparator: Comparator<T>) {
+export function quicksort<T>(
+  items: T[],
+  comparator: Comparator<T> = defaultComparator,
+) {
   shuffle(items);
   sort(items, 0, items.length - 1);
 
@@ -36,7 +39,10 @@ export function quicksort<T>(items: T[], comparator: Comparator<T>) {
   }
 }
 
-export function mergesort<T>(items: T[], comparator: Comparator<T>) {
+export function mergesort<T>(
+  items: T[],
+  comparator: Comparator<T> = defaultComparator,
+) {
   sort(items, [...items], 0, items.length - 1);
 
   function merge(
