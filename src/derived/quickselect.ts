@@ -1,5 +1,5 @@
 import { shuffle, partition } from "../basics/Sort.ts";
-import { defaultComparator } from "../utils.ts";
+import { less } from "../utils.ts";
 import { Comparator } from "../types.d.ts";
 
 /**
@@ -13,7 +13,7 @@ import { Comparator } from "../types.d.ts";
 export default function <T>(
   items: T[],
   k: number,
-  comparator: Comparator<T> = defaultComparator,
+  comparator: Comparator<T> = less,
   saveSpace: boolean = false,
 ): T | undefined {
   if (items.length === 0 || items.length < k) {
