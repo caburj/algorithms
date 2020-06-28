@@ -30,3 +30,10 @@ Deno.test("undefined", () => {
   items = [10];
   assertEquals(quickselect(items, 10), undefined);
 });
+
+Deno.test("set of many words", () => {
+  const words = Deno.readTextFileSync("./data/wordlist.txt").trim().split(
+    /\s+/,
+  );
+  assertEquals(quickselect(words, 1), "zyzomys");
+});

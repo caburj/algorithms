@@ -48,6 +48,17 @@ Deno.test("17 items", () => {
   }
 });
 
+Deno.test("many words", () => {
+  const words = Deno.readTextFileSync("./data/words.utf-8.txt").trim().split(
+    /\s+/,
+  );
+  for (let sort of sortMethods) {
+    const toSort = [...words];
+    sort(toSort);
+    assertEquals(toSort.slice(0, 2), ["A", "A'asia"]);
+  }
+});
+
 Deno.test("objects", () => {
   class Negate {
     val: number;
